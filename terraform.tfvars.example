@@ -1,0 +1,17 @@
+project_prefix     = "prefix"
+ssh_public_key     = "<ssh public key>"
+
+azure_owner_tag    = "user@mail.com"
+azure_region       = "westeurope"
+
+azure_subscription_id    = ""
+azure_image_name         = "f5xc-ce-9.2024.31-20241003073332.vhd"
+azure_storage_account_rg = ""
+azure_storage_account    = ""
+
+azure_sku_flavor       = "Standard_B4ms"    # 4 vCPU 16GB RAM
+
+# playground.prod
+f5xc_api_url      = "https://<tenant>.console.ves.volterra.io/api"
+f5xc_api_token    = "<f5xc api token>"
+f5xc_tenant       = "<tenant id>"
