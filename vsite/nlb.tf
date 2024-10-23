@@ -4,11 +4,6 @@ resource "azurerm_lb" "lb" {
   location            = var.resource_group_location
   resource_group_name = var.resource_group_name
 
-  # frontend_ip_configuration {
-  #   name                 = "slo-public"
-  #   public_ip_address_id = azurerm_public_ip.nlb.id
-  # }
-
   frontend_ip_configuration {
       name      = "slo"
       subnet_id = azurerm_subnet.slo.id
@@ -64,13 +59,6 @@ resource "azurerm_lb_rule" "sli" {
   loadbalancer_id                = azurerm_lb.lb.id
   backend_address_pool_ids       = [azurerm_lb_backend_address_pool.sli.id]
   frontend_ip_configuration_name = "sli"
-}
-
-resource "azurerm_public_ip" "nlb" {
-  name                = format("%s-slo-nlb-public-ip", var.f5xc_vsite_name)
-  location            = var.resource_group_location
-  resource_group_name = var.resource_group_name
-  allocation_method   = "Static"
 }
 
 output "nlb" {
