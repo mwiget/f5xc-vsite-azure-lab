@@ -20,6 +20,8 @@ module "azure-node" {
   azure_owner_tag              = var.azure_owner_tag
   azure_sli_workload_ip        = var.azure_sli_workload_ip[count.index]
   f5xc_tunnel_type             = var.f5xc_tunnel_type
+  backend_address_pool_slo_id  = azurerm_lb_backend_address_pool.slo.id
+  backend_address_pool_sli_id  = azurerm_lb_backend_address_pool.sli.id
 
   azure_network_security_group_id = resource.azurerm_network_security_group.external.id
 }

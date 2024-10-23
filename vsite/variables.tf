@@ -34,3 +34,13 @@ variable "resource_group_location" {}
 variable "azure_sku_flavor" {}
 variable "azure_disk_size" {}
 variable "azure_subscription_id" {}
+
+variable "f5xc_ce_slo_probe_port" {
+  type    = number
+  default = 9505
+}
+
+variable "f5xc_ce_sli_probe_port" {
+  type    = number
+  default = 65450
+}

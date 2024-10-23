@@ -19,3 +19,5 @@ variable "resource_group_location" {}
 variable "azure_sku_flavor" {}
 variable "azure_subscription_id" {}
 variable "f5xc_tunnel_type" {}
+variable "backend_address_pool_slo_id" {}
+variable "backend_address_pool_sli_id" {}
