@@ -1,12 +1,12 @@
-output "vsite1" {
-  value = module.vsite1
-  sensitive = true
-}
+# output "vsite1" {
+#   value = module.vsite1
+#   sensitive = true
+# }
 
-#output "vsite2" {
-#  value = module.vsite2
-#  sensitive = true
-#}
+# output "vsite2" {
+#   value = module.vsite2
+#   sensitive = true
+# }
 
 output "ip_address" {
   value = flatten(concat(
@@ -17,3 +17,9 @@ output "ip_address" {
   ))
 }
 
+output "load_balancer" {
+  value = {
+    vsite1 = flatten(concat(module.vsite1.nlb.private_ip_addresses)),
+    vsite2 = flatten(concat(module.vsite2.nlb.private_ip_addresses))
+  }
+}

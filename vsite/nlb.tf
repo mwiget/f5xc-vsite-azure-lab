@@ -72,3 +72,7 @@ resource "azurerm_public_ip" "nlb" {
   resource_group_name = var.resource_group_name
   allocation_method   = "Static"
 }
+
+output "nlb" {
+  value = azurerm_lb.lb
+}
