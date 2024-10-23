@@ -23,3 +23,7 @@ output "load_balancer" {
     vsite2 = flatten(concat(module.vsite2.nlb.private_ip_addresses))
   }
 }
+
+output "resource_group" {
+  value = azurerm_resource_group.rg.name
+}
