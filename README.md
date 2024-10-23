@@ -52,4 +52,5 @@ load_balancer = {
     "10.2.11.6",
   ]
 }
+resource_group = "mw-vsite-lab-rg"
 ```
