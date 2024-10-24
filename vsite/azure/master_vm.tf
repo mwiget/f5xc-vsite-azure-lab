@@ -10,10 +10,11 @@ resource "azurerm_public_ip" "master_vm" {
 }
 
 resource "azurerm_network_interface" "master_vm_slo" {
-  name                = format("%s-slo-master_vm-nic", var.f5xc_cluster_name)
-  location            = var.resource_group_location
-  resource_group_name = var.resource_group_name
-  
+  name                  = format("%s-slo-master_vm-nic", var.f5xc_cluster_name)
+  location              = var.resource_group_location
+  resource_group_name   = var.resource_group_name
+  ip_forwarding_enabled = true
+
   ip_configuration {
     name                          = "slo"
     subnet_id                     = var.azure_slo_subnet_id
@@ -23,9 +24,10 @@ resource "azurerm_network_interface" "master_vm_slo" {
 }
 
 resource "azurerm_network_interface" "master_vm_sli" {
-  name                = format("%s-sli-master_vm-nic", var.f5xc_cluster_name)
-  location            = var.resource_group_location
-  resource_group_name = var.resource_group_name
+  name                  = format("%s-sli-master_vm-nic", var.f5xc_cluster_name)
+  location              = var.resource_group_location
+  resource_group_name   = var.resource_group_name
+  ip_forwarding_enabled = true
   
   ip_configuration {
     name                          = "sli"
