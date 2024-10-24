@@ -76,6 +76,18 @@ resource "azurerm_network_security_group" "external" {
     destination_address_prefix = "*"
   }
 
+  security_rule {
+    name                       = "tcpPort80"
+    priority                   = 112
+    direction                  = "Inbound"
+    access                     = "Allow"
+    protocol                   = "Tcp"
+    source_port_range          = "*"
+    destination_port_range     = "80"
+    source_address_prefix      = "*"
+    destination_address_prefix = "*"
+  }
+
   tags = {
     Name    = format("%s-gw", var.f5xc_vsite_name)
     Creator = var.azure_owner_tag
